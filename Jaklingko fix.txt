@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ArcGIS Web Application</title>
+  <link rel="icon" href="images/shortcut.ico">
+  <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="jimu.js/css/jimu-ie.css">
+  <![endif]-->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #main-loading {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      overflow: hidden;
+    }
+    #main-page {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    #jimu-layout-manager {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    #unsupported-browser-message {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .browser-message {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      padding: 1rem;
+    }
+    .browser-button-container {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .browser-button-container button {
+      cursor: pointer;
+      border: none;
+      background: transparent;
+    }
+    .browser-button-container img {
+      width: 20px;
+      height: 20px;
+    }
+    .browser-message-title {
+      color: #002625;
+      font-weight: 300;
+      margin: 1.5rem auto;
+      font-size: 2.5rem;
+      line-height: 2rem;
+    }
+    .browser-message-content {
+      color: #3d6665;
+      font-weight: 400;
+      font-size: 1.1rem;
+      line-height: 2rem;
+    }
+  </style>
+  <link rel="stylesheet" type="text/css" href="configs/loading/loading.css">
+  <script>
+    // Isi dengan fungsi loadingCallback jika perlu
+  </script>
+</head>
+<body class="claro jimu-main-font">
+  <div id="main-loading">
+    <div id="app-loading"></div>
+    <div id="loading-gif"></div>
+    <!-- Konten kustom di sini -->
+  </div>
+  <div id="main-page" role="application">
+    <div class="trapLinkNode" tabindex="0"></div>
+    <div id="jimu-layout-manager"></div>
+    <div id="skipContainer"></div>
+    <div class="trapLinkNode lastTrapLinkNode" tabindex="0"></div>
+  </div>
+  <div id="unsupported-browser-message">
+    <div class="browser-message">
+      <div class="browser-button-container">
+        <button><img src="./browser-message/close.png" alt="Close"></button>
+      </div>
+      <h1 class="browser-message-title" id="message-title"></h1>
+      <p class="browser-message-content" id="message-content-1"></p>
+      <p class="browser-message-content" id="message-content-2"></p>
+      <p class="browser-message-content" id="message-content-3"></p>
+      <ul id="browser-logo-list">
+        <li class="browser-logo">
+          <a href="https://www.google.com/chrome/">
+            <img src="./browser-message/chrome.png" alt="Chrome">
+          </a>
+        </li>
+        <li class="browser-logo">
+          <a href="https://www.mozilla.org/firefox/">
+            <img src="./browser-message/firefox.png" alt="Firefox">
+          </a>
+        </li>
+        <li class="browser-logo">
+          <a href="https://www.apple.com/safari/">
+            <img src="./browser-message/safari.png" alt="Safari">
+          </a>
+        </li>
+        <li class="browser-logo">
+          <a href="https://www.microsoft.com/edge">
+            <img src="./browser-message/edge.png" alt="Edge">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="./service-worker-registration.js" type="text/javascript"></script>
+  <script src="env.js" type="text/javascript"></script>
+  <script src="browser-message/limited-unsupported-browser.js" type="text/javascript"></script>
+  <script src="simpleLoader.js" type="text/javascript"></script>
+  <script src="init.js" type="text/javascript"></script>
+</body>
+</html>
